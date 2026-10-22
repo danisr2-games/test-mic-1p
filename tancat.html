@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="ca">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="robots" content="noindex,nofollow">
+<title>Test de MIC I 1P</title>
+<style>:root { --bg:#edf2f7; --surface:#fbfdff; --ink:#15202e; --muted:#5d6b7e; --line:#d6e0eb; --head:#0e1a2b; --accent:#2a6c9e; --ko:#b23b2e;
+  --f-display:"Bricolage Grotesque","Avenir Next","Segoe UI",sans-serif; --f-body:"Source Sans 3","Helvetica Neue",Arial,sans-serif; }
+@media (prefers-color-scheme: dark) { :root { --bg:#1b1720; --surface:#26212d; --ink:#f0ebf5; --muted:#b0a6bd; --line:#3d3548; --head:#110e15; --accent:#c9a6ee; --ko:#f08a7c; color-scheme: dark } }
+* { box-sizing: border-box; }
+html, body { margin: 0; min-height: 100%; }
+body { background: var(--bg); color: var(--ink); font-family: var(--f-body); font-size: 16px; line-height: 1.5;
+  display: flex; align-items: center; justify-content: center; min-height: 100vh;
+  padding-block: 24px; padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); }
+.caixa { width: 100%; max-width: 420px; background: var(--surface); border: 1.5px solid var(--line); border-radius: 16px; padding: 28px 24px; }
+.ull { width: 44px; height: 44px; border-radius: 50%; background: var(--head); display: grid; place-items: center; margin-bottom: 14px; }
+.ull i { width: 16px; height: 16px; border-radius: 50%; background: var(--bg); box-shadow: 0 0 0 5px var(--accent); }
+h1 { font-family: var(--f-display); font-weight: 800; font-size: 1.5rem; margin: 0 0 4px; text-wrap: balance; }
+p { margin: 0 0 16px; color: var(--muted); font-size: .93rem; }
+label { display: block; font-weight: 600; font-size: .85rem; margin-bottom: 6px; }
+input[type=password] { width: 100%; font: inherit; padding: 11px 13px; border-radius: 10px; border: 1.5px solid var(--line); background: var(--bg); color: var(--ink); }
+input[type=password]:focus-visible, button:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+.recorda { display: flex; gap: 8px; align-items: center; margin: 12px 0 18px; font-size: .88rem; color: var(--muted); }
+button { width: 100%; border: 0; border-radius: 10px; padding: 12px; font: inherit; font-weight: 700; cursor: pointer; background: var(--head); color: #fff; }
+button:disabled { opacity: .6; cursor: default; }
+.err { color: var(--ko); font-size: .88rem; min-height: 1.3em; margin: 10px 0 0; }
+.peu { margin: 16px 0 0; font-size: .78rem; }
+.app { margin-top: 14px; border-top: 1.5px solid var(--line); padding-top: 12px; font-size: .85rem; }
+.app summary { cursor: pointer; font-weight: 700; color: var(--accent); }
+.app p { margin: 8px 0 0; color: var(--ink); font-size: .85rem; }
+/* fons de radiografia: ossos que es desplacen + escàner */
+html { background: var(--bg); }
+body { background: transparent; }
+html::before { content: ""; position: fixed; inset: -300px; z-index: -2; pointer-events: none;
+  background-image: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20width%3D%22300%22%20height%3D%22300%22%20fill%3D%22none%22%20stroke%3D%22%235d8fbf%22%20stroke-width%3D%222.2%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%3E%3Cg%20transform%3D%22translate%2878%2092%29%20rotate%2832%29%22%3E%3Cpath%20d%3D%22M-6-50C-10-62-22-60-20-50C-26-46-20-36-10-40L-6-38L-6%2038L-10%2040C-20%2036-26%2046-20%2050C-22%2060-10%2062-6%2050L6%2050C10%2062%2022%2060%2020%2050C26%2046%2020%2036%2010%2040L6%2038L6-38L10-40C20-36%2026-46%2020-50C22-60%2010-62%206-50Z%22/%3E%3Cpath%20d%3D%22M-11%202L-4-4L1%204L6-3L11%203%22%20stroke-width%3D%222.6%22/%3E%3C/g%3E%3Cg%20transform%3D%22translate%28222%20196%29%20rotate%28-24%29%22%3E%3Crect%20x%3D%22-8%22%20y%3D%22-42%22%20width%3D%2216%22%20height%3D%2284%22%20rx%3D%228%22/%3E%3Ccircle%20cx%3D%220%22%20cy%3D%22-28%22%20r%3D%223%22/%3E%3Ccircle%20cx%3D%220%22%20cy%3D%22-9%22%20r%3D%223%22/%3E%3Ccircle%20cx%3D%220%22%20cy%3D%229%22%20r%3D%223%22/%3E%3Ccircle%20cx%3D%220%22%20cy%3D%2228%22%20r%3D%223%22/%3E%3C/g%3E%3Cg%20transform%3D%22translate%28228%2064%29%20rotate%2858%29%22%3E%3Cpath%20d%3D%22M-5-30h10M0-30v56M-5-22l10%204M-5-12l10%204M-5-2l10%204M-5%208l10%204M-5%2018l10%204M-3%2028l3%204%203-4%22/%3E%3C/g%3E%3Cg%20transform%3D%22translate%2886%20232%29%20rotate%288%29%22%3E%3Cellipse%20cx%3D%220%22%20cy%3D%220%22%20rx%3D%2215%22%20ry%3D%2210%22/%3E%3Cpath%20d%3D%22M-10%206Q0%2028%2010%206M0%2018V34M-13%209L-27%2014M13%209L27%2014%22/%3E%3C/g%3E%3C/svg%3E"); background-size: 300px 300px; opacity: var(--os);
+  animation: ossos 90s linear infinite; will-change: transform; }
+html::after { content: ""; position: fixed; left: 0; right: 0; top: 0; height: 28vh; z-index: -1; pointer-events: none;
+  background: linear-gradient(180deg, transparent, color-mix(in srgb, var(--accent) 9%, transparent) 55%, color-mix(in srgb, var(--accent) 16%, transparent) 62%, transparent);
+  animation: escaner 11s cubic-bezier(.45,.05,.55,.95) infinite; will-change: transform; }
+@keyframes ossos { to { transform: translate(300px, 300px); } }
+@keyframes escaner { 0% { transform: translateY(-30vh); } 100% { transform: translateY(105vh); } }
+@media (prefers-reduced-motion: reduce) { html::before, html::after { animation: none; } html::after { display: none; } }
+@media print { html::before, html::after { display: none; } }
+
+:root { --os: .11; }
+@media (prefers-color-scheme: dark) { :root { --bg:#0b121c; --surface:#131d2a; --ink:#e6eef7; --muted:#93a3b8; --line:#26364a; --head:#060b12; --accent:#7fb6e6; --os:.16; } }
+.caixa { box-shadow: 0 10px 40px rgba(14,26,43,.12); }
+.ull { background: var(--head); }
+.ull i { width: 30px; height: 30px; border-radius: 0; background: none; box-shadow: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='-30 -30 60 60'%3E%3Cg transform='rotate(45) scale(.42)' fill='%23eaf2fb'%3E%3Cpath d='M-6-50C-10-62-22-60-20-50C-26-46-20-36-10-40L-6-38L-6 38L-10 40C-20 36-26 46-20 50C-22 60-10 62-6 50L6 50C10 62 22 60 20 50C26 46 20 36 10 40L6 38L6-38L10-40C20-36 26-46 20-50C22-60 10-62 6-50Z'/%3E%3C/g%3E%3C/svg%3E");
+  background-size: contain; background-repeat: no-repeat; }
+</style>
+</head>
+<body>
+<main class="caixa" id="acces-tancat">
+  <div class="ull" aria-hidden="true"><i></i></div>
+  <h1>Accés tancat</h1>
+  <p>Aquest test es va poder fer servir fins al 29 d'octubre de 2026. Ara ja no està disponible.</p>
+</main>
+<script>try { Object.keys(localStorage).filter(k => /-pw$/.test(k)).forEach(k => localStorage.removeItem(k)); } catch (e) {}
+try { navigator.serviceWorker.getRegistrations().then(rs => rs.forEach(r => r.unregister())); caches.keys().then(ks => ks.forEach(k => caches.delete(k))); } catch (e) {}</script>
+</body>
+</html>
